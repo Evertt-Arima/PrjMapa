@@ -1,2 +1,31 @@
 /**/
 
+.container
+{
+  width: 95%;
+}
+
+.rr
+{
+  text-align: center;
+}
+
+h1
+{
+  font-family: verdana;
+  font-size: 35px;
+  font-style: bolder;
+}
+
+#pingif
+{
+  width: 90%;
+  text-align: center;
+}
+
+#btnMapa
+{
+  font-family: verdana;
+  font-size: 20px;
+  font-style: bolder;
+}
