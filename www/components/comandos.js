@@ -1,7 +1,7 @@
 // This is a JavaScript file
 
 
-$(document).on("load", "mapa.html", function(){
+$(document).on("click", "#btnMapa", function(){
   checkConnection();
   var latitude = undefined;
   var longitude = undefined;
@@ -20,10 +20,23 @@ function checkConnection() {
     states[Connection.CELL]     = 'Cell generic connection';
     states[Connection.NONE]     = 'No network connection';
 
-    if(states[networkState] != states[connection.NONE])
+    if(states[networkState] == states[Connection.NONE])
     {
+
+      navigator.notification.alert("Sem conexão. Por favor, conectar a uma rede.", semConexao, "Alerta", "fechar");
+    }
+    else
+    {
+      navigator.notification.beep(1);
+      
       getMapLocation();
     }
+}
+
+function semConexao()
+{
+  navigator.notification.beep(3);
+  navigator.vibrate(6000);
 }
 
 //Encontrar as coordenadas;
