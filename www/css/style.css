@@ -8,6 +8,7 @@
 .rr
 {
   text-align: center;
+  margin-top: 30px;
 }
 
 h1
@@ -21,7 +22,14 @@ h1
 {
   width: 70%;
   text-align: center;
-  margin-top: 90px;
+  margin-top: 30px;
+}
+
+#btnInicio{
+  height: 50px;
+  font-family: verdana;
+  font-size: 20px;
+  font-style: bolder;
 }
 
 #btnMapa
@@ -29,6 +37,11 @@ h1
   font-family: verdana;
   font-size: 20px;
   font-style: bolder;
-  margin-top: 100px;
+  margin-top: 50px;
   height: 50px;
+}
+
+#map{
+  height: 500px;
+  width: 90%;
 }

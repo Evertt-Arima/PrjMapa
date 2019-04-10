@@ -7,11 +7,13 @@
 
   <script src="components/loader.js"></script>
   <script src="components/jquery-3.3.1.min.js"></script>
+  <script src="https://com.mapquest/maps/api/js?key=Tb4mQvnfzr5SSkAldnGNtLUzzpQTaaaL"></script>
   <script src="components/comandos.js"></script>
-  <script src="Tb4mQvnfzr5SSkAldnGNtLUzzpQTaaaL"></script>
+  <script src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest-maps.js"></script>
+  
+  <maven { url 'https://artifactory.cloud.mapquest.com/artifactory/et-android-binaries' }>
 
-
-
+  <link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest-maps.css"/>
   <link rel="stylesheet" href="components/loader.css">
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/style.css">
@@ -25,8 +27,9 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-xs-12" id="mapa">
-          
+        <div class="col-xs-12">
+          <div id="map">
+          </div>
         </div>
       </div>
     </div>

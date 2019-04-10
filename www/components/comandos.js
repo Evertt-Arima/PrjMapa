@@ -1,10 +1,12 @@
 // This is a JavaScript file
+src="Tb4mQvnfzr5SSkAldnGNtLUzzpQTaaaL";
 
+
+var latitude = undefined;
+var longitude = undefined;
 
 $(document).on("click", "#btnMapa", function(){
   checkConnection();
-  var latitude = undefined;
-  var longitude = undefined;
 });
 
 function checkConnection() {
@@ -52,6 +54,8 @@ var onMapSuccess = function (position) {
     Latitude = position.coords.latitude;
     Longitude = position.coords.longitude;
 
+    navigator.notification.alert("Latitude: " + Latitude + "\n" + "Longitude: " + Longitude);
+
     getMap(Latitude, Longitude);
 
 }
@@ -60,26 +64,18 @@ var onMapSuccess = function (position) {
 function getMap(latitude, longitude)
 {
 
-  var mapOptions = {
-    center: new com.MapQuest.LatLng(0,0),
-    zoom: 1,
-    mapTypeId: com.MapQuest.MapTypeId.ROADMAP
-  };
+  window.onload = function() {
+        L.mapquest.key = 'Tb4mQvnfzr5SSkAldnGNtLUzzpQTaaaL';
 
-  map = new com.MapQuest.Map
-    (document.getElementById("#mapa"), mapOptions);
+        var map = L.mapquest.map('map', {
+          center: [37.7749, -122.4194],
+          layers: L.mapquest.tileLayer('map'),
+          zoom: 12
+        });
 
-  var latLong = new com.MapQuest.LatLng(latitude, longitude);
-
-    var marker = new com.MapQuest.Marker({
-        position: latLong
-    });
-
-    marker.setMap(map);
-    map.setZoom(15);
-    map.setCenter(marker.getPosition());
+        map.addControl(L.mapquest.control());
+  }
 }
-
 //Retorno de sucesso após observar mudança de posição;
 
 var onMapWatchSuccess = function (position) {
