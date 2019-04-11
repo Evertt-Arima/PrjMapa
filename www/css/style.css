@@ -3,6 +3,7 @@
 .container
 {
   width: 95%;
+  text-align: center;
 }
 
 .rr
@@ -37,11 +38,17 @@ h1
   font-family: verdana;
   font-size: 20px;
   font-style: bolder;
-  margin-top: 50px;
+  margin-top: 10px;
   height: 50px;
 }
 
 #map{
-  height: 500px;
-  width: 90%;
+  height: 400px;
+  text-align: center;
+  width: 100%;
+  border-radius: 5px 5px 5px 5px;
+}
+
+.cc{
+  text-align: center;
 }

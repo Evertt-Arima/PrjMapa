@@ -1,14 +1,17 @@
 // This is a JavaScript file
-src="Tb4mQvnfzr5SSkAldnGNtLUzzpQTaaaL";
 
 
-var latitude = undefined;
-var longitude = undefined;
-
+//Clicar no botão;
 $(document).on("click", "#btnMapa", function(){
+  
   checkConnection();
+  
+  getMapLocation();
+
+  mostrar();
 });
 
+//Verificar conexão;
 function checkConnection() {
     var networkState = navigator.connection.type;
 
@@ -31,16 +34,51 @@ function checkConnection() {
     {
       navigator.notification.beep(1);
       
-      getMapLocation();
+      
     }
 }
 
+//Desconectado
 function semConexao()
 {
   navigator.notification.beep(3);
   navigator.vibrate(6000);
 }
 
+//Achar as coordenadas
+function getMapLocation() {
+
+    navigator.geolocation.getCurrentPosition
+    (onMapSuccess, onMapError, { enableHighAccuracy: true });
+}
+
+//Resultado positivo;
+var onMapSuccess = function (position) {
+
+    Latitude = position.coords.latitude;
+    Longitude = position.coords.longitude;
+
+}
+
+//Resultado negativo
+var onMapError = function (position) {
+
+    alert('Código: '    + error.code    + '\n' +
+              'Mensagem: ' + error.message + '\n');
+
+}
+
+//Abrir
+function mostrar(){
+    L.mapquest.key = 'Tb4mQvnfzr5SSkAldnGNtLUzzpQTaaaL';
+
+    L.mapquest.map('map', {
+      center: [Latitude, Longitude],
+      layers: L.mapquest.tileLayer('map'),
+      zoom: 10
+    });
+}
+/*
 //Encontrar as coordenadas;
 function getMapLocation() {
 
@@ -105,4 +143,4 @@ function watchMapPosition() {
 
     return navigator.geolocation.watchPosition
     (onMapWatchSuccess, onMapError, { enableHighAccuracy: true });
-}
+}*/
