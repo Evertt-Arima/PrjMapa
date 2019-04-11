@@ -6,21 +6,7 @@ $(document).on("click", "#btnMapa", function(){
   
   checkConnection();
   
-  window.onload = function() {
-
-     var onSuccess = function(position){
-        L.mapquest.key = 'Tb4mQvnfzr5SSkAldnGNtLUzzpQTaaaL';
-        var map = L.mapquest.map('map', {
-          center: [position.coords.latitude, position.coords.longitude],
-          layers: L.mapquest.tileLayer('map'),
-          zoom: 12
-        });   
-
-        map.addControl(L.mapquest.control());
-        }
-
-        navigator.geolocation.getCurrentPosition(onSuccess);
-    }
+  
 });
 
 
@@ -47,6 +33,22 @@ function checkConnection() {
     else
     {
       navigator.notification.beep(1);
+
+      window.onload = function() {
+
+     var onSuccess = function(position){
+        L.mapquest.key = 'Tb4mQvnfzr5SSkAldnGNtLUzzpQTaaaL';
+        var map = L.mapquest.map('map', {
+          center: [position.coords.latitude, position.coords.longitude],
+          layers: L.mapquest.tileLayer('map'),
+          zoom: 12
+        });   
+
+        map.addControl(L.mapquest.control());
+        }
+
+        navigator.geolocation.getCurrentPosition(onSuccess);
+    }
     }
 }
 
