@@ -6,10 +6,24 @@ $(document).on("click", "#btnMapa", function(){
   
   checkConnection();
   
-  getMapLocation();
+  window.onload = function() {
 
-  mostrar();
+     var onSuccess = function(position){
+        L.mapquest.key = 'Tb4mQvnfzr5SSkAldnGNtLUzzpQTaaaL';
+        var map = L.mapquest.map('map', {
+          center: [position.coords.latitude, position.coords.longitude],
+          layers: L.mapquest.tileLayer('map'),
+          zoom: 12
+        });   
+
+        map.addControl(L.mapquest.control());
+        }
+
+        navigator.geolocation.getCurrentPosition(onSuccess);
+    }
 });
+
+
 
 //Verificar conexão;
 function checkConnection() {
@@ -33,8 +47,6 @@ function checkConnection() {
     else
     {
       navigator.notification.beep(1);
-      
-      
     }
 }
 
@@ -45,6 +57,7 @@ function semConexao()
   navigator.vibrate(6000);
 }
 
+/*
 //Achar as coordenadas
 function getMapLocation() {
 
@@ -78,7 +91,7 @@ function mostrar(){
       zoom: 10
     });
 }
-/*
+
 //Encontrar as coordenadas;
 function getMapLocation() {
 
